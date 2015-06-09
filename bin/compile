@@ -6,8 +6,8 @@ indent() {
 
 echo "-----> Installing pngquant"
 BUILD_DIR=$1
-VENDOR_DIR="vendor"
-PNGQUANT_DOWNLOAD_URL="https://github.com/jayzes/heroku-buildpack-pngquant/releases/download/v2.0.1/pngquant"
+VENDOR_DIR="$HOME/vendor"
+PNGQUANT_DOWNLOAD_URL="https://github.com/toy/image_optim_pack/raw/master/vendor/linux/x86_64/pngquant"
 
 echo "PNGQUANT_DOWNLOAD_URL = " $PNGQUANT_DOWNLOAD_URL | indent
 
@@ -20,4 +20,4 @@ chmod +x pngquant/bin/pngquant
 echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/pngquant.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/pngquant/bin"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:$VENDOR_DIR/pngquant/bin"' >> $PROFILE_PATH
